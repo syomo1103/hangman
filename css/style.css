@@ -1,0 +1,97 @@
+* {
+  box-sizing: border-box;
+}
+
+#title {
+  text-align: center;
+  margin: 50px auto;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 90px;
+  color: #FAFFFF;
+  text-shadow: 2px 2px 8px #2B2B2B;
+}
+
+#subtitle {
+  margin: 70px auto;
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 30px;
+  color: #2B2B2B;
+}
+
+#pickLink {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 25px;
+  text-decoration: none;
+}
+
+.themeLink {
+  text-align: center;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 40px;
+  text-decoration: none;
+  margin-top: 100px;
+
+}
+
+body {
+  min-width: 700px;
+  /*background: #7F5B7A;*/
+}
+
+#container {
+/*  height: 555px;
+  width: 555px;*/
+  margin: 0 auto;
+  width: 600px;
+  overflow: auto;
+  /*background: #7F5B7A;*/
+}
+
+#drawing {
+  display: inline-block;
+  float: left;
+  background-color: white;
+}
+
+main {
+  height: 420px;
+  width: 420px;
+  text-align: center;
+}
+
+#letters {
+  display: inline-block;
+  float: left;
+  margin-left: 23px;
+  margin-top: 100px;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 22px;
+}
+
+table {
+  height: 300px;
+  width: 150px;
+  border: none;
+}
+
+td {
+  /*border: 1px solid black;*/
+  text-align: center;
+  /*border-radius: 60px;*/
+  padding: 5px;
+  margin: 10px;
+}
+
+td:hover {
+  background: rgba(255,255,255, 0.5);
+  border-radius: 40%;
+}
+
+footer {
+  margin: 20px 0 100px 0;
+  text-align: center;
+  border-top: 1px solid black;
+  clear: both;
+  background: white;
+}
