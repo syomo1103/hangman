@@ -7,8 +7,6 @@
   margin: 80px auto 40px auto;
   font-family: 'Annie Use Your Telescope', cursive;
   font-size: 120px;
-  /*color: #FAFFFF;*/
-  /*text-shadow: 2px 2px 2px #2B2B2B;*/
 }
 
 #subtitle {
@@ -90,6 +88,7 @@ main {
   margin-top: 50px;
   font-family: 'Shadows Into Light', cursive;
   font-size: 22px;
+  color: #7F5B7A;
 }
 
 table {
