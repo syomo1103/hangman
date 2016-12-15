@@ -2,17 +2,17 @@
   box-sizing: border-box;
 }
 
-#title {
+#first-title {
   text-align: center;
-  margin: 50px auto;
-  font-family: 'Alfa Slab One', cursive;
-  font-size: 90px;
-  color: #FAFFFF;
-  text-shadow: 2px 2px 8px #2B2B2B;
+  margin: 80px auto 40px auto;
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 120px;
+  /*color: #FAFFFF;*/
+  /*text-shadow: 2px 2px 2px #2B2B2B;*/
 }
 
 #subtitle {
-  margin: 70px auto;
+  margin: 40px auto;
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
   font-size: 30px;
@@ -30,19 +30,43 @@
   font-family: 'Shadows Into Light', cursive;
   font-size: 40px;
   text-decoration: none;
-  margin-top: 100px;
+  margin-top: 140px;
 }
 
 body {
   min-width: 700px;
+  margin-top: -30px;
   /*background: #7F5B7A;*/
+  background: url('https://i.imgur.com/9kSazDJ.jpg');
+  background-size: cover;
+}
+
+#wrapper {
+  margin: 20px auto 0 auto;
+  width: 376px;
+ /* overflow: auto;*/
+  text-align: center;
+}
+
+h1 {
+  /*font-family: 'Dawning of a New Day', cursive;*/
+  font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 120px;
+  margin: 0 auto;
+  display: inline-block;
+  font-weight: 300;
+  /*height: 140px;
+  width: 376px;
+  float: left;
+  text-align: center;*/
+  /*overflow: auto;*/
 }
 
 #container {
 /*  height: 555px;
   width: 555px;*/
-  margin: 0 auto;
-  width: 600px;
+  margin: -30px auto -30px auto;
+  width: 660px;
   overflow: auto;
   /*background: #7F5B7A;*/
 }
@@ -62,8 +86,8 @@ main {
 #letters {
   display: inline-block;
   float: left;
-  margin-left: 23px;
-  margin-top: 100px;
+  margin-left: 85px;
+  margin-top: 50px;
   font-family: 'Shadows Into Light', cursive;
   font-size: 22px;
 }
@@ -93,9 +117,34 @@ footer {
   /*margin: 50px auto 0 auto;*/
   text-align: center;
   clear: both;
-  font-size: 60px;
+  font-size: 55px;
 }
 
+.letterLines > b {
+  position: absolute;
+  font-weight: 300;
+}
+
+#lose-message {
+  font-size: 37px;
+  text-align: center;
+}
+
+#win-message {
+  font-size: 37px;
+  text-align: center;
+}
+
+.reset {
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  float: left;
+  margin-left: 100px;
+  margin-top: 14px;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 23px;
+}
 /*div.letterLines {
   display: inline-block;
 }

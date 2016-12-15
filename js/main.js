@@ -9,31 +9,37 @@ var songTitles = ['I WILL ALWAYS LOVE YOU', 'BABY ONE MORE TIME', 'TAKE MY BREAT
 var lettersMatched = [];
 var letterClicked = [];
 var secretLetters = [];
-var wrongLetters = 0;
+var wrongGuesses = 0;
 
 /*---event listeners ---*/
-//1. event listener for letters clicked
+$('.reset').on('click', function(evt) {
+  location.reload();
+});
+
 $('td').one('click', function(evt) {
   letterClicked.push(this.innerHTML);
   checkMatch(this.innerHTML);
-  this.innerHTML = '';
+  gameOver();
+  $(this).css('color', 'lightgrey');
 });
 
-//2. event listener for theme picked
+//event listener to enter and pick a theme
 $('#pickLink').one('click', function(evt) {
-  $('#title').hide();
+  $('#first-title').hide();
   $('#subtitle').hide();
   $('.themeLink').show();
+  $('h1').hide();
 });
 
-//3. event listener for once theme has been clicked
+//event listeners for once theme has been clicked
 $('#dogLink').one('click', function(evt) {
   var randomDog = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
-  $('body').css('background-color', '#7F5B7A');
-  $('#title').hide();
+  $('body').css('background', 'white');
+  $('#first-title').hide();
   $('.themeLink').hide();
   $('#container').show();
   $('footer').show();
+  $('h1').show();
   //converts randomDog into array
   var dogStr = randomDog.split('');
   secretLetters = dogStr;
@@ -46,21 +52,20 @@ $('#dogLink').one('click', function(evt) {
   //>>> handleclick for letters <<<//
 
   //add lines for number of letters
-  // $(secretLetters).each(function(index) {
-  //   if (secretLetters[index] === ' ') {
-  //   $('footer').append('<span class="letterLines"></br></span>');
-  //   } else {
-  //   $('footer').append('<span class="letterLines">_ </span>');
-  //   }
-  // });
-  //click letter//
+  $(secretLetters).each(function(index) {
+    if (secretLetters[index] === ' ') {
+    $('footer').append('<span class="letterLines"></br></span>');
+    } else {
+    $('footer').append('<span class="letterLines">_ </span>');
+    }
+  });
 });
 
 $('#countriesLink').one('click', function(evt) {
   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
   console.log(randomCountry);
-  $('body').css('background-color', '#7F5B7A');
-  $('#title').hide();
+  $('body').css('background-color', 'white');
+  $('#first-title').hide();
   $('#themePicker').hide();
   $('.themeLink').hide();
   $('#container').show();
@@ -85,8 +90,8 @@ $('#countriesLink').one('click', function(evt) {
 $('#songLink').one('click', function(evt) {
   var randomSong = songTitles[Math.floor(Math.random() * songTitles.length)];
   console.log(randomSong);
-  $('body').css('background-color', '#7F5B7A');
-  $('#title').hide();
+  $('body').css('background-color', 'white');
+  $('#first-title').hide();
   $('#themePicker').hide();
   $('.themeLink').hide();
   $('#container').show();
@@ -116,32 +121,73 @@ function initialize()/*reset*/{
   letterClicked = [];
   lettersMatched = [];
   secretLetters = [];
-  wrongLetters = 0;
+  wrongGuesses = 0;
   $('#container').hide();
   $('footer').hide();
   $('.themeLink').hide();
+  $('h1').hide();
+  $('.reset').hide();
 };
 
 function checkMatch(x) {
   if (secretLetters.includes(x)) {
     for (var i = 0; i < secretLetters.length; i++) {
-    if (secretLetters[i] === x) {
-      lettersMatched.splice(i, 1, x);
-      console.log(lettersMatched);
+      if (secretLetters[i] === x) {
+        lettersMatched.splice(i, 1, x);
+        updateDisplay(x, i);
+        console.log(lettersMatched);
+      }
     }
-  }
-} else {
-    wrongLetters++;
-    addImage();
-    console.log(wrongLetters);
+  } else {
+    wrongGuesses++;
+    addImage(wrongGuesses);
+    console.log(wrongGuesses);
   }
 };
 
-// function addImage() {
-//   if (wrongLetters === 1) {
-//   $('#drawing').empty().append('<img id="first" src="https://i.imgur.com/qA5KtEd.png"/>')
-//   }
-// };
+function gameOver() {
+if (wrongGuesses === 7) {
+  $('td').off('click');
+  $('#letters').empty().append('<div id="lose-message">Gaaah...<br>Game Over!</div>');
+  $('#lose-link').show();
+} else if (lettersMatched.toString() === secretLetters.toString()) {
+  $('td').off('click');
+  $('#letters').empty().append('<div id="win-message">Woot, woot!<br>Nice one!</div>');
+  $('#win-link').show();
+  }
+};
+
+function updateDisplay(x, index) {
+  var html = $.parseHTML('<b>' + x + '</b>')[0];
+  console.log(html);
+  $('.letterLines')[index].prepend(html);
+};
+
+function addImage(wrongGuesses) {
+  switch (wrongGuesses) {
+    case 1:
+      $('#drawing').empty().append('<img id="first" src="http://i.imgur.com/qA5KtEd.png"/>');
+      break;
+    case 2:
+      $('#drawing').empty().append('<img id="second" src="http://i.imgur.com/6onT8JR.png"/>');
+      break;
+    case 3:
+      $('#drawing').empty().append('<img id="third" src="http://i.imgur.com/FPoLRjZ.png"/>');
+      break;
+    case 4:
+      $('#drawing').empty().append('<img id="fourth" src="http://i.imgur.com/3TjnxlZ.png"/>');
+      break;
+    case 5:
+      $('#drawing').empty().append('<img id="fifth" src="http://i.imgur.com/d8K6sub.png"/>');
+      break;
+    case 6:
+      $('#drawing').empty().append('<img id="sixth" src="http://i.imgur.com/j58Cs5e.png"/>');
+      break;
+    case 7:
+      $('#drawing').empty().append('<img id="seventh" src="http://i.imgur.com/NH3WN1i.png"/>');
+      break;
+  }
+};
 
 initialize();
 
