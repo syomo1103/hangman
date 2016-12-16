@@ -29,7 +29,7 @@ var songObject = {
   'I WILL ALWAYS LOVE YOU': 'Written and originally recorded in 1973 by Dolly Parton, but made most famous by Whitney Houston in 1992',
   'WHAT A WONDERFUL WORLD': 'This song was first recorded by Louis Armstrong and released as a single in 1967',
   'TAKE MY BREATH AWAY': 'Written for the movie Top Gun and performed by the band Berlin',
-  'SATISFACTION': 'The song has become a staple at Rolling Stones shows',
+  'SATISFACTION': 'This song has become a staple at Rolling Stones shows',
   'SMOOTH OPERATOR': 'This song became the first Top Ten Hit in the US for Sade'
 };
 
