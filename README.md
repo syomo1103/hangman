@@ -1,11 +1,8 @@
-
 ![](../../resources/assets/ga-icon-small.png)
 
 # Project 1: Hangman 
 
 ## Description
-
->>>> A description of your game ([Use Your Game's Name]). Background info of the game and screenshots are a nice touch.
 
 **Hangman** is a typically a paper and pencil guessing game. We're putting a spin on it and taking it to the web! 
 
@@ -21,33 +18,24 @@ List of programs:
 
 - HTML5
 - CSS3
+- JavaScript
 - jQuery
 
 ---
 
 ## Getting Started
 
-Installation instructions (Getting Started). For your game, this section will include the link to your hosted game's site.
-
-- A set of User Stories that describe your game's features in the following
-  lists in Trello:
-  1. MVP
-  2. Completed
-  2. Icebox.
+Go to https://syomo1103.github.io/hangman/index.html to start playing. 
 
 ---
 
 ### Next Steps
 
-Unsolved problems and/or planned features (Next Steps).
+The following are a few planned features to be implemented at a later point: 
 
-1. **War** (the card game)
-1. **Hangman** (theming is encouraged)
-1. **Connect Four**
-
-**Be prepared to share the following with class first thing Thursday morning:**
-
-1. Your choice of game.
-2. Your pseudocode for the overall game-play logic.
+1.  Option to show a hint after 4 wrong guesses
+3. Adding complexity to words after each win
+4. Add option to exit current game at any point 
+5. Allow one player to create the word and pass to a friend to play together. 
 
 ---

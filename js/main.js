@@ -1,35 +1,35 @@
 $(document).ready(function() {
 
 /*--- variables ---*/
-var dogBreeds = ['GERMAN SHEPHERD', 'LABORADOR', 'YORKSHIRE TERRIER', 'ROTTWIELER', 'SIBERIAN HUSKY'];
-var countries = ['UNITED STATES', 'ARGENTINA', 'AZERBAIJAN', 'ISRAEL', 'MALAYSIA'];
+var dogBreeds = ['GERMAN SHEPHERD', 'LABRADOR', 'YORKSHIRE TERRIER', 'ROTTWIELER', 'SIBERIAN HUSKY'];
+var countries = ['UNITED STATES', 'ARGENTINA', 'MONTENEGRO', 'ISRAEL', 'THAILAND'];
 var songTitles = ['I WILL ALWAYS LOVE YOU', 'WHAT A WONDERFUL WORLD', 'TAKE MY BREATH AWAY', 'SATISFACTION', 'AMERICAN WOMAN'];
 var lettersMatched = [];
 var letterClicked = [];
 var secretLetters = [];
 var wrongGuesses = 0;
 var dogObject = {
-  'GERMAN SHEPHERD': 'test',
-  'LABORADOR': 'test',
-  'YORKSHIRE TERRIER': 'test',
-  'ROTTWIELER': 'test',
-  'SIBERIAN HUSKY': 'test'
+  'GERMAN SHEPHERD': 'As part of the Herding Group, this breed was developed originally for herding sheep',
+  'LABRADOR': 'This breed is frequently trained to aid the blind and act as a therapy dog',
+  'YORKSHIRE TERRIER': 'The defining feature of the breed is its max size of 7 pounds, although some may exceed this and grow up to 15 pounds',
+  'ROTTWIELER': 'This breed is always, by breed club standards, black with well-defined mahogany or rust-colored markings',
+  'SIBERIAN HUSKY': 'This breed originated in north-eastern Russia'
 };
 
 var countryObject = {
-  'UNITED STATES': 'test',
-  'ARGENTINA': 'test',
-  'AZERBAIJAN': 'test',
-  'ISRAEL': 'test',
-  'MALAYSIA': 'test'
+  'UNITED STATES': 'This is a federal republic composed of 50 states',
+  'ARGENTINA': 'This is the largest Spanish-speaking country in Latin America',
+  'MONTENEGRO': 'This country borders Croatia, Bosnia and Herzegovina, Serbia, Kosovo,[a] and Albania',
+  'ISRAEL': 'This country is 68 years old',
+  'THAILAND': 'This country is formerly known as Siam'
 };
 
 var songObject = {
-  'I WILL ALWAYS LOVE YOU': 'test',
-  'WHAT A WONDERFUL WORLD': 'test',
-  'TAKE MY BREATH AWAY': 'test',
-  'SATISFACTION': 'test',
-  'AMERICAN WOMAN': 'test'
+  'I WILL ALWAYS LOVE YOU': 'Written and originally recorded in 1973 by Dolly Parton, but made most famous by Whitney Houston in 1992',
+  'WHAT A WONDERFUL WORLD': 'This song was first recorded by Louis Armstrong and released as a single in 1967',
+  'TAKE MY BREATH AWAY': 'Written for the movie Top Gun and performed by the band Berlin',
+  'SATISFACTION': 'The song has become a staple at Rolling Stones shows',
+  'SMOOTH OPERATOR': 'This song became the first Top Ten Hit in the US for Sade'
 };
 
 /*---event listeners ---*/
@@ -47,24 +47,19 @@ $('td').one('click', function(evt) {
 });
 
 //listener to pick a theme
-$('#pickLink').one('click', function(evt) {
+$('#pick-link').one('click', function(evt) {
   $('#first-title').hide();
   $('#subtitle').hide();
-  $('.themeLink').show();
+  $('.theme-link').show();
   $('h1').hide();
 });
 
-$('#hint-link').one('click', function(evt) {
-  console.log('hello');
-  // addHint();
-});
-
 //listeners for once theme has been clicked
-$('#dogLink').one('click', function(evt) {
+$('#dog-link').one('click', function(evt) {
   var randomDog = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
   $('body').css('background', 'white');
   $('#first-title').hide();
-  $('.themeLink').hide();
+  $('.theme-link').hide();
   $('#container').show();
   $('footer').show();
   $('h1').show();
@@ -78,18 +73,18 @@ $('#dogLink').one('click', function(evt) {
   //display dashes for each letter
   $(secretLetters).each(function(index) {
     if (secretLetters[index] === ' ') {
-    $('footer').append('<span class="letterLines"></br></span>');
+      $('footer').append('<span class="letterLines"></br></span>');
     } else {
-    $('footer').append('<span class="letterLines">_ </span>');
+      $('footer').append('<span class="letterLines">_ </span>');
     }
   });
 });
 
-$('#countriesLink').one('click', function(evt) {
+$('#countries-link').one('click', function(evt) {
   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
   $('body').css('background', 'white');
   $('#first-title').hide();
-  $('.themeLink').hide();
+  $('.theme-link').hide();
   $('#container').show();
   $('footer').show();
   $('h1').show();
@@ -107,11 +102,11 @@ $('#countriesLink').one('click', function(evt) {
   });
 });
 
-$('#songLink').one('click', function(evt) {
+$('#song-link').one('click', function(evt) {
   var randomSong = songTitles[Math.floor(Math.random() * songTitles.length)];
   $('body').css('background', 'white');
   $('#first-title').hide();
-  $('.themeLink').hide();
+  $('.theme-link').hide();
   $('#container').show();
   $('footer').show();
   $('h1').show();
@@ -130,6 +125,17 @@ $('#songLink').one('click', function(evt) {
   });
 });
 
+// $('#hint-link').one('click', function(evt) {
+// var target = $(evt.target);
+//   if (target.is('#dog-link')) {
+//     checkHint(dogObject);
+//   } else if (target.is('#countries-link')) {
+//     checkHint(countryObject);
+//   } else if (target.is('#song-link')) {
+//     checkHint(songObject);
+//   }
+// });
+
 /*--- functions ---*/
 function initialize() {
   letterClicked = [];
@@ -138,7 +144,7 @@ function initialize() {
   wrongGuesses = 0;
   $('#container').hide();
   $('footer').hide();
-  $('.themeLink').hide();
+  $('.theme-link').hide();
   $('h1').hide();
   $('.reset').hide();
 };
@@ -201,16 +207,11 @@ function addImage(wrongGuesses) {
   }
 };
 
-// function addHint(keys) {
-// if (secretLetters.includes(Object.keys(dogObject))) {
-//     switch (keys) {
-//     case 1:
-//       $('#drawing').html('<img src="http://i.imgur.com/qA5KtEd.png"/>');
-//       break;
-//     case 2:
-//       $('#drawing img').attr('src', 'http://i.imgur.com/6onT8JR.png');
-//       break;
-//     }
+// function checkHint(zobj) {
+//   var k = Object.keys(zobj);
+//   for (var i = 0; i < k.length; i++)
+//     if (secretLetters.join('') === k[i]) {
+//     console.log(Object.values(zobj)[i]);
 //   }
 // };
 
