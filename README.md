@@ -1,5 +1,3 @@
-![](../../resources/assets/ga-icon-small.png)
-
 # Project 1: Hangman 
 
 ## Description
