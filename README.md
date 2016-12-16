@@ -33,6 +33,7 @@ The following are a few planned features to be implemented at a later point:
 
 1. Adding complexity to words after each win
 2. Add option to exit current game at any point 
-3. Allow one player to create the word and pass to a friend to play together. 
+3. Allow one player to create the word and pass to a friend to play together 
+4. Add sounds
 
 ---
