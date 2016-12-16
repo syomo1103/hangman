@@ -59,12 +59,12 @@ h1 {
 }
 
 #hint-div {
-    height: 25px;
-    width: 130px;
-    float: left;
-    display: inline-block;
-    margin-top: 50px;
-    margin-left: 3px;
+  height: 25px;
+  width: 130px;
+  float: left;
+  display: inline-block;
+  margin-top: 50px;
+  margin-left: 3px;
 }
 
 #hint-link {
