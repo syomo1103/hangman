@@ -8,6 +8,7 @@ var lettersMatched = [];
 var letterClicked = [];
 var secretLetters = [];
 var wrongGuesses = 0;
+var dogTheme, countryTheme, songTheme;
 var dogObject = {
   'GERMAN SHEPHERD': 'As part of the Herding Group, this breed was developed originally for herding sheep',
   'LABRADOR': 'This breed is frequently trained to aid the blind and act as a therapy dog',
@@ -42,7 +43,6 @@ $('td').one('click', function(evt) {
   letterClicked.push(this.innerHTML);
   checkMatch(this.innerHTML);
   gameOver();
-  // isHintNeeded();
   $(this).css('color', 'lightgrey');
 });
 
@@ -56,6 +56,7 @@ $('#pick-link').one('click', function(evt) {
 
 //listeners for once theme has been clicked
 $('#dog-link').one('click', function(evt) {
+  dogTheme = true;
   var randomDog = dogBreeds[Math.floor(Math.random() * dogBreeds.length)];
   $('body').css('background', 'white');
   $('#first-title').hide();
@@ -81,6 +82,7 @@ $('#dog-link').one('click', function(evt) {
 });
 
 $('#countries-link').one('click', function(evt) {
+  countryTheme = true;
   var randomCountry = countries[Math.floor(Math.random() * countries.length)];
   $('body').css('background', 'white');
   $('#first-title').hide();
@@ -103,6 +105,7 @@ $('#countries-link').one('click', function(evt) {
 });
 
 $('#song-link').one('click', function(evt) {
+  songTheme = true;
   var randomSong = songTitles[Math.floor(Math.random() * songTitles.length)];
   $('body').css('background', 'white');
   $('#first-title').hide();
@@ -125,16 +128,15 @@ $('#song-link').one('click', function(evt) {
   });
 });
 
-// $('#hint-link').one('click', function(evt) {
-// var target = $(evt.target);
-//   if (target.is('#dog-link')) {
-//     checkHint(dogObject);
-//   } else if (target.is('#countries-link')) {
-//     checkHint(countryObject);
-//   } else if (target.is('#song-link')) {
-//     checkHint(songObject);
-//   }
-// });
+$('#hint-link').one('click', function(evt) {
+  if (dogTheme === true) {
+    checkHint(dogObject);
+  } else if (countryTheme === true) {
+    checkHint(countryObject);
+  } else if (songTheme === true) {
+    checkHint(songObject);
+  }
+});
 
 /*--- functions ---*/
 function initialize() {
@@ -207,13 +209,17 @@ function addImage(wrongGuesses) {
   }
 };
 
-// function checkHint(zobj) {
-//   var k = Object.keys(zobj);
-//   for (var i = 0; i < k.length; i++)
-//     if (secretLetters.join('') === k[i]) {
-//     console.log(Object.values(zobj)[i]);
-//   }
-// };
+function checkHint(zobj) {
+  var k = Object.keys(zobj);
+  for (var i = 0; i < k.length; i++)
+    if (secretLetters.join('') === k[i]) {
+    addHint(zobj, i);
+  }
+};
+
+function addHint(zobj, i) {
+  $('#hint-link').empty().append('<div>' + Object.values(zobj)[i] + '</div>');
+};
 
 initialize();
 
