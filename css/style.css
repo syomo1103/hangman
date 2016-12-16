@@ -64,31 +64,48 @@ h1 {
 /*  height: 555px;
   width: 555px;*/
   margin: -30px auto -30px auto;
-  width: 660px;
+  width: 793px;
   overflow: auto;
   /*background: #7F5B7A;*/
+}
+
+#hint-div {
+    height: 25px;
+    width: 130px;
+    float: left;
+    display: inline-block;
+    margin-top: 150px;
+    margin-left: 3px;
+}
+
+#hint-link {
+  text-decoration: none;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 23px;
 }
 
 #drawing {
   display: inline-block;
   float: left;
   background-color: white;
+  height: 420px;
+  width: 420px;
 }
 
-main {
+img {
   height: 420px;
   width: 420px;
   text-align: center;
+  display: block;
 }
 
 #letters {
   display: inline-block;
   float: left;
   margin-left: 85px;
-  margin-top: 50px;
+  margin-top: 45px;
   font-family: 'Shadows Into Light', cursive;
   font-size: 22px;
-  color: #7F5B7A;
 }
 
 table {
@@ -106,8 +123,9 @@ td {
 }
 
 td:hover {
-  background: rgba(255,255,255, 0.5);
-  border-radius: 40%;
+/*  background: rgba(255,255,255, 0.5);
+  border-radius: 40%;*/
+  cursor: pointer;
 }
 
 footer {
@@ -117,11 +135,13 @@ footer {
   text-align: center;
   clear: both;
   font-size: 55px;
+  margin-top: 10px;
 }
 
 .letterLines > b {
   position: absolute;
-  font-weight: 300;
+  font-weight: normal;
+  color: #587094;
 }
 
 #lose-message {
